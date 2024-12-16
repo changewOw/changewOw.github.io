@@ -160,6 +160,79 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/16/3d-Gaussians-Splatting/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="柴犬Hammer">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="柴犬Hammer's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/12/16/3d-Gaussians-Splatting/" class="post-title-link" itemprop="url">3d Gaussians Splatting</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-12-16 13:31:21 / Modified: 17:59:25" itemprop="dateCreated datePublished" datetime="2024-12-16T13:31:21+08:00">2024-12-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/3dgs/" itemprop="url" rel="index"><span itemprop="name">3dgs</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/661569671">解析1</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/666465701">数学推导</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/626506306">解析2</a></p>
+<h3 id="1D-Gaussian"><a href="#1D-Gaussian" class="headerlink" title="1D Gaussian"></a>1D Gaussian</h3><p>1D普通高斯函数</p>
+<h3 id="1D-3D"><a href="#1D-3D" class="headerlink" title="1D-&gt;3D"></a>1D-&gt;3D</h3><p>3D高斯可以用来表示空间中的任意形状的椭球<br>3D高斯函数引入了协方差矩阵，用u来控制椭球中心，用协方差来控制椭球的伸缩和旋转  </p>
+<h3 id="初始化椭球"><a href="#初始化椭球" class="headerlink" title="初始化椭球"></a>初始化椭球</h3><p>对于协方差矩阵有要求，需要协方差半正定，这类约束无法进行数值优化<br>所以可以通过先缩放后旋转来获得协方差矩阵<br>也即，$ \Sigma&#x3D;RSS^TR^T $，也就需要一个向量s，和一个四元数q来表达<br>通过直接优化s和q来间接优化协方差矩阵  </p>
+<h3 id="Splatting"><a href="#Splatting" class="headerlink" title="Splatting"></a>Splatting</h3><p>Rasterization光栅化意味着将三维三角形project到平面并像素化<br>Splatting则意味着把3D椭球project到平面，就像雪球击打在平面留下一个印记  </p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>在三角mesh的project过程中，三个离散点，不会出现不线性，不正定，不仿射等问题<br>3D高斯的基础单元是一个3D分布，project变换不再仿射，论文使用了 $ \Sigma’&#x3D;JW\Sigma W^TJ^T $   </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/15/nerf-fourier-features/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -440,20 +513,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
